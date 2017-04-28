@@ -20,9 +20,12 @@
 
     <!-- Plugin CSS -->
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="css/duration-picker.css" rel="stylesheet">
+
 
     <!-- Custom styles for this template -->
     <link href="css/creative.css" rel="stylesheet">
+
 
     <!-- Temporary navbar container fix -->
     <style>
@@ -53,11 +56,11 @@
                             <input class="form-control" type="text" id="taskPanels" placeholder="New Task" />
                         </div>
                         <div class="card-block">
-                            <input type="text" id="timePicker" readonly>
+                            <input type="text" id="duration" name="duration">
                         </div>
                         <div class="card-block card-notes-section">
                             <div class="form-group">
-                                <textarea class="form-control" id="exampleTextarea" rows="4" placeholder="Some notes.."></textarea>
+                                <textarea class="form-control" id="notesPanels" rows="4" placeholder="Some notes.."></textarea>
                             </div>
                         </div>
                         <div class="card-block card-buttons-section">
@@ -96,6 +99,11 @@
     
     <script src="http://rubaxa.github.io/Sortable/Sortable.js"></script>
     <script> Sortable.create(contentPanel, {}); </script> 
+
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="js/duration-picker.js"></script>
+    <script>$("#duration").durationPicker();</script>
+
 
 </body>
 
