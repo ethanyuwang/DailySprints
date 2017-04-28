@@ -1,28 +1,71 @@
-/*--------------------------------------Dynamic Cards----------------------------*/
-var addCols = function (taskName, notes){
-    var myCol = $('<div class="col-sm-2 col-md-2"></div>');
-    //var myPanel = $('<div class="card card-outline-info" id="'+i+'Panel"><div class="card-block"><div class="card-title"><span>Card #'+i+'</span><button type="button" class="close" data-target="#'+i+'Panel" data-dismiss="alert"><span class="float-right"><i class="fa fa-remove"></i></span></button></div><p>Some text in '+i+' </p><img src="//placehold.it/50/eeeeee" class="rounded rounded-circle"></div></div>');
-    var myPanel = $('<div class="card"><div class="card-block"><input class="form-control" type="text" id="taskPanels" value="'+taskName+'" /></div><div class="card-block"><input type="text" id="timePicker" readonly></div><div class="card-block"><input class="form-control" type="text" id="notesPanels" value="'+notes+'" maxlength="3" /></div><div class="card-block"><button type="button" class="btn btn-circle" id="btnGen"><i class="fa fa-remove animated"></i></button></div></div>');
-    myPanel.appendTo(myCol);
-    //$("#contentPanel .div:last").before(myCol);
-    //myCol.before($('<div>'));
-    myCol.insertBefore('#newCardEditor');
-    //myCol.appendTo('#contentPanel');
-    
-    $('.close').on('click', function(e){
-      e.stopPropagation();  
-          var $target = $(this).parents('.col-sm-3');
-          $target.hide('slow', function(){ $target.remove(); });
+(function($) {
+    "use strict"; // Start of use strict
+
+    // Smooth scrolling using jQuery easing
+    $('a[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: (target.offset().top - 48)
+                }, 1000, "easeInOutExpo");
+                return false;
+            }
+        }
     });
-};
 
-$('#btnGen').click(function(){
-    addCols($('#taskPanels').val(), $('#notesPanels').val());
-    return false;
-});
+    // Activate scrollspy to add active class to navbar items on scroll
+    $('body').scrollspy({
+        target: '#mainNav',
+        offset: 48
+    });
 
-$(".time-picker").hunterTimePicker({
-    callback: function(e){ 
-        alert(e.val());
-    }
-});
+    // Closes responsive menu when a link is clicked
+    $('.navbar-collapse>ul>li>a').click(function() {
+        $('.navbar-collapse').collapse('hide');
+    });
+
+    // Collapse the navbar when page is scrolled
+    $(window).scroll(function() {
+        if ($("#mainNav").offset().top > 100) {
+            $("#mainNav").addClass("navbar-shrink");
+        } else {
+            $("#mainNav").removeClass("navbar-shrink");
+        }
+    });
+
+    // Scroll reveal calls
+    window.sr = ScrollReveal();
+    sr.reveal('.sr-icons', {
+        duration: 600,
+        scale: 0.3,
+        distance: '0px'
+    }, 200);
+    sr.reveal('.sr-button', {
+        duration: 1000,
+        delay: 200
+    });
+    sr.reveal('.sr-contact', {
+        duration: 600,
+        scale: 0.3,
+        distance: '0px'
+    }, 300);
+
+    // Magnific popup calls
+    $('.popup-gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        tLoading: 'Loading image #%curr%...',
+        mainClass: 'mfp-img-mobile',
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [0, 1]
+        },
+        image: {
+            tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+        }
+    });
+
+})(jQuery); // End of use strict

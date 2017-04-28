@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Creative - Start Bootstrap Theme</title>
+    <title>Sprints for the Day</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -23,11 +23,6 @@
 
     <!-- Custom styles for this template -->
     <link href="css/creative.css" rel="stylesheet">
-
-    <!-- plugins -->
-    <link rel="stylesheet" href="css/timePicker.css">
-
-
 
     <!-- Temporary navbar container fix -->
     <style>
@@ -46,14 +41,13 @@
 
 <body id="page-top">
 
-    <section id="sprintCards">
-        <div class="container-fluid">
-
+    <header class="masthead">
+        <div class="header-content">
             <div class="row" id="contentPanel">
                 <!-- insert new dynamic cards here -->
                 <!-- last card as the new card editor interface -->
 
-                <div class="col-sm-2 col-md-2" id='newCardEditor'>
+                <div class="col-sm-2 col-md-2 sprintCard" id='newCardEditor'>
                     <div class="card">
                         <div class="card-block">
                             <input class="form-control" type="text" id="taskPanels" value="Your Task" />
@@ -71,15 +65,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>          
         </div>
-    </section>
+    </header>
 
-
-
-    
-
-  
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -94,9 +83,11 @@
     <!-- Custom scripts for this template -->
     <script src="js/creative.js"></script>
 
-    <!-- costum plugins --> <!--
-    <script src="//code.jquery.com/jquery.min.js"></script>
-    <script src="js/jquery-timepicker.js"></script> -->
+    <!-- costum plugins -->
+    <script src="js/dynamicCards.js"></script>
+    <!-- Latest Sortable -->
+    <script src="http://rubaxa.github.io/Sortable/Sortable.js"></script>
+    <script> Sortable.create(contentPanel, {}); </script>
 
 </body>
 
