@@ -111,6 +111,32 @@ header.masthead {
     text-align: center;
     padding: 100px 15px 100px;
     width: 100%; }
+    header.masthead .header-content .contentPanel{
+      position: relative;
+      text-align: center;
+      padding: 100px 15px 100px;
+      width: 100%;
+      position: center }
+      header.masthead .sprintCard{
+        margin: 0 auto;
+        width: 80%; }
+      header.masthead .cardButton{
+        margin: 0 auto;
+        width: 80%; }
+      header.masthead .card-buttons{
+        margin: 0 auto;
+        padding: 0 auto; }
+      header.masthead .card-notes-section{
+        margin: 0 auto;
+        padding: 0; }
+      header.masthead .card-buttons-section{
+        margin-top: 0
+        margin-left: 0
+        margin-right: 0
+        margin-bottom: auto;
+        padding: 0 auto; }
+
+
   @media (min-width: 768px) {
     header.masthead {
       height: 100%;
@@ -123,3 +149,4 @@ header.masthead {
         transform: translateY(-50%);
         padding: 0 50px; }
         
+margin: 0 auto;

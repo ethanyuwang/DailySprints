@@ -50,24 +50,32 @@
                 <div class="col-sm-2 col-md-2 sprintCard" id='newCardEditor'>
                     <div class="card">
                         <div class="card-block">
-                            <input class="form-control" type="text" id="taskPanels" value="Your Task" />
+                            <input class="form-control" type="text" id="taskPanels" placeholder="New Task" />
                         </div>
                         <div class="card-block">
                             <input type="text" id="timePicker" readonly>
                         </div>
-                        <div class="card-block">
-                            <input class="form-control" type="text" id="notesPanels" value="Notes" maxlength="3" />
+                        <div class="card-block card-notes-section">
+                            <div class="form-group">
+                                <textarea class="form-control" id="exampleTextarea" rows="4" placeholder="Some notes.."></textarea>
+                            </div>
                         </div>
-                        <div class="card-block">
-                            <button type="button" class="btn btn-circle" id="btnGen">
-                                <i class="fa fa-plus animated"></i>
-                            </button>
+                        <div class="card-block card-buttons-section">
+                            <div class="row">
+                                <button type="button" class="btn card-buttons" id="btnGen">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>          
         </div>
     </header>
+
+
+                    
+    
 
 
     <!-- Bootstrap core JavaScript -->
@@ -85,9 +93,9 @@
 
     <!-- costum plugins -->
     <script src="js/dynamicCards.js"></script>
-    <!-- Latest Sortable -->
+    
     <script src="http://rubaxa.github.io/Sortable/Sortable.js"></script>
-    <script> Sortable.create(contentPanel, {}); </script>
+    <script> Sortable.create(contentPanel, {}); </script> 
 
 </body>
 
