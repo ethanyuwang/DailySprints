@@ -27,3 +27,12 @@ $('#btnGen').click(function(){
     return true;
 });
 
+
+
+//change background
+function init() {
+    var images = ['bg1.jpg', 'bg2.jpg', 'bg3.jpg', 'bg4.jpg'];
+    //var masthead = document.getElementsByTagName('masthead')[0];
+    $('#masthead').css({'background-image': 'url(img/' + images[Math.floor(Math.random() * images.length)] + ')'});
+    //body.style.backgroundImage = 'url(img/background/' + images[Math.floor(Math.random() * images.length)] + ')';
+}

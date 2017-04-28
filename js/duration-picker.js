@@ -136,11 +136,6 @@
         	min: 0,
         	max: 59
         },
-        seconds: {
-        	label: "s",
-        	min: 0,
-        	max: 59
-        },
         classname: 'form-control',
         type: 'number',
         responsive: true
