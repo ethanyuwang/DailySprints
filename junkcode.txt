@@ -1,0 +1,13 @@
+<div class="container">
+        <h2>Add some cards..</h2>
+        <form class="form-inline">
+            <input class="form-control col-1" type="text" id="numPanels" value="17" maxlength="3" />
+            <button type="button" class="btn btn-info" id="btnGen">Generate</button>
+        </form>
+        <br>
+        <div class="row" id="contentPanel">
+        <div class="col-sm-1 col-md-1 pb-2"></div>
+
+
+        </div>
+    </div>
