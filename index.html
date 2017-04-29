@@ -50,7 +50,7 @@
                 <!-- insert new dynamic cards here -->
                 
                 <!-- last card as the new card editor interface -->
-                <div class="col-sm-2 col-md-2 sprintCard" id='newCardEditor' draggable="false">
+                <div class="col-sm-2 col-md-2 sprintCard" id='newCardEditor'>
                     <div class="card">
                         <div class="card-block">
                             <input class="form-control" type="text" id="taskPanel" placeholder="New Task" />
@@ -96,7 +96,7 @@
 
     <!-- costum plugins -->
     <script src="http://rubaxa.github.io/Sortable/Sortable.js"></script>
-    <script> Sortable.create(contentPanel, {}); </script> 
+    <script> Sortable.create(contentPanel, {filter: "#newCardEditor"}); </script>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/duration-picker.js"></script>
