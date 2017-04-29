@@ -1,35 +1,39 @@
 /*--------------------------------------Dynamic Cards----------------------------*/
-function card(id, duration, taskName, notes) {
-    this.firstName = first;
-    this.lastName = last;
-    this.age = age;
-    this.eyeColor = eye;
+function card(taskName, duration, notes) {
+    this.duration = duration;
+    this.taskName = taskName;
+    this.notes = notes;
 }
 
-var addCols = function (taskName, notes){
+card.prototype.addCols = function() {
     var myCol = $('<div class="col-sm-2 col-md-2 sprintCard"></div>');
-    var idRand = Math.floor(Math.random()*20);
-    //var myPanel = $('<div class="card" id="'+idRand+'Panel"><div class="card-block"><input class="form-control" type="text" id="taskPanels" value="'+taskName+'" /></div><div class="card-block"><input type="text" id="timePicker" readonly></div><div class="card-block"><input class="form-control" type="text" id="notesPanels" value="'+notes+'" maxlength="3" /></div><div class="card-block"><button type="button" class="btn btn-circle class="close" data-target="#'+idRand+'Panel" data-dismiss = "alert"><i class="fa fa-remove animated"></i></button></div></div>');
-    var myPanel = $('<div class="card" id="'+idRand+'Panel"> <div class="card-block"> <input class="form-control" type="text" id="taskPanels" value="'+taskName+'"/> </div><div class="card-block"> <input type="text" id="timePicker" readonly> </div><div class="card-block card-notes-section"> <div class="form-group"> <textarea class="form-control" id="notesPanels" rows="4" value="'+notes+'"></textarea> </div></div><div class="card-block card-buttons-section"> <div class="row"> <button type="button" class="btn card-buttons close" data-target="#'+idRand+'Panel" data-dismiss="alert"> <i class="fa fa-remove"></i> </button> </div></div></div>')
+    this.id = Math.floor(Math.random()*20);
+    var myPanel = $('<div class="card" id="'+this.id+'Panel"> <div class="card-block"> <input class="form-control" type="text" id="taskPanel#'+this.id+'" value="'+this.taskName+'"/> </div><div class="card-block"> <input type="text" id="duration" name="duration"> </div><div class="card-block card-notes-section"> <div class="form-group"> <textarea class="form-control" id="notesPanel#'+this.id+'" rows="4">'+this.notes+'</textarea> </div></div><div class="card-block card-buttons-section"> <div class="row"> <button type="button" class="btn card-buttons close" data-target="#'+this.id+'Panel" data-dismiss="alert"> <i class="fa fa-remove"></i> </button> </div></div></div>')
     myPanel.appendTo(myCol);
     myCol.insertBefore('#newCardEditor');
-    
+
     $('.close').on('click', function(e){
       e.stopPropagation();  
           var $target = $(this).parents('.col-sm-2');
-          $target.hide('slow', function(){ $target.remove(); });
+          $target.hide(function(){ $target.remove(); });
     });
 };
 
 
+
+
+
 $('#btnGen').click(function(){
-    addCols($('#taskPanels').val(), $('textarea#notesPanels').val());
+    var newCard = new card($('#taskPanel').val(), $('#duration').val(), $('#notesPanel').val());
+    newCard.addCols();
+    $('#taskPanels').attr("value") = "";
+    //addCols($('#taskPanels').val(), $("#duration").val(), $('textarea#notesPanels').val());
     return true;
 });
 
 
 
-//change background
+//change background to fix
 function init() {
     var images = ['bg1.jpg', 'bg2.jpg', 'bg3.jpg', 'bg4.jpg'];
     //var masthead = document.getElementsByTagName('masthead')[0];
