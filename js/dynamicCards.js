@@ -53,8 +53,10 @@ card.prototype.addCols = function() {
 $('#btnGen').click(function(){
     var newCard = new card($('#taskPanel').val(), $('#duration-hours').val(), $('#duration-minutes').val(), $('#notesPanel').val());
     newCard.addCols();
-    $('#taskPanels').attr("value") = "";
-    //addCols($('#taskPanels').val(), $("#duration").val(), $('textarea#notesPanels').val());
+    $('#taskPanel').val("");
+    $('#duration-hours').val(0);
+    $('#duration-minutes').val(0);
+    $('#notesPanel').val("");
     return true;
 });
 
