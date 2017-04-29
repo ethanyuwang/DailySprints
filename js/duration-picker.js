@@ -118,7 +118,7 @@
         var html = '<div class="durationpicker-container ' + settings.classname + '">';
         var type = settings.type;
         for (var item in stages){
-            html += '<div class="durationpicker-innercontainer"><input min="' + settings[stages[item]]['min'] + '" max="' + settings[stages[item]]['max'] + '" placeholder="0" type="' + type + '" id="duration-' + stages[item] + '" class="durationpicker-duration" ><span class="durationpicker-label">' + settings[stages[item]]['label'] + '</span></div>';
+            html += '<div class="durationpicker-innercontainer"><input min="' + settings[stages[item]]['min'] + '" max="' + settings[stages[item]]['max'] + '" placeholder="0" type="' + type + '" id="duration-' + settings[stages[item]]['id'] + '" class="durationpicker-duration" ><span class="durationpicker-label">' + settings[stages[item]]['label'] + '</span></div>';
         }
         html += '</div>';
 
@@ -129,12 +129,14 @@
         hours: {
         	label: "h",
         	min: 0,
-        	max: 24
+        	max: 24,
+            id: "hours"
         },
         minutes: {
         	label: "m",
         	min: 0,
-        	max: 59
+        	max: 59,
+            id: "minutes"
         },
         classname: 'form-control',
         type: 'number',

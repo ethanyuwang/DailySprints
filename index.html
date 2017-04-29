@@ -48,19 +48,19 @@
         <div class="header-content">
             <div class="row" id="contentPanel">
                 <!-- insert new dynamic cards here -->
+                
                 <!-- last card as the new card editor interface -->
-
-                <div class="col-sm-2 col-md-2 sprintCard" id='newCardEditor'>
+                <div class="col-sm-2 col-md-2 sprintCard" id='newCardEditor' draggable="false">
                     <div class="card">
                         <div class="card-block">
-                            <input class="form-control" type="text" id="taskPanels" placeholder="New Task" />
+                            <input class="form-control" type="text" id="taskPanel" placeholder="New Task" />
                         </div>
                         <div class="card-block">
                             <input type="text" id="duration" name="duration">
                         </div>
                         <div class="card-block card-notes-section">
                             <div class="form-group">
-                                <textarea class="form-control" id="notesPanels" rows="4" placeholder="Some notes.."></textarea>
+                                <textarea class="form-control" id="notesPanel" rows="4" placeholder="Some notes.."></textarea>
                             </div>
                         </div>
                         <div class="card-block card-buttons-section">
@@ -95,14 +95,16 @@
     <script src="js/creative.js"></script>
 
     <!-- costum plugins -->
-    <script src="js/dynamicCards.js"></script>
-    
     <script src="http://rubaxa.github.io/Sortable/Sortable.js"></script>
     <script> Sortable.create(contentPanel, {}); </script> 
 
     <script src="js/jquery.min.js"></script>
     <script src="js/duration-picker.js"></script>
     <script>$("#duration").durationPicker();</script>
+
+    <script src="js/dynamicCards.js"></script>
+    
+    
 
 
 </body>
