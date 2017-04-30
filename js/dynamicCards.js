@@ -51,7 +51,7 @@ $('#btnGen').click(function(){
     var minutes = $('#duration-minutes').val();
     var task = $('#taskPanel').val();
     var notes = $('#notesPanel').val();
-    if ((hours!=0&&minutes!=0)&&(task!=""||notes!="")) {
+    if ((hours!=0||minutes!=0)&&(task!=""||notes!="")) {
     var newCard = new card(task, hours, minutes, notes);
         newCard.addCols();
         //reset values after creating new card
