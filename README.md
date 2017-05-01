@@ -7,7 +7,5 @@ http://ethanxyz.com/Sprints-for-the-Day/
 2. randomlized background (local->online images)
 3. Link to google and facebook accounts
 4. Better animation
-5. save session info to cookie
-6. host on...?
 7. better name?
 8. push notification when a card is about to end

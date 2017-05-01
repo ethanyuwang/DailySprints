@@ -100,7 +100,7 @@ setInterval(function() {
             document.getElementById("duration-minutes"+id).value = minutes;
         }
     }
-}, 1000);
+}, 60000);
 
 
 
