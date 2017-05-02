@@ -1,4 +1,6 @@
-
+/*--------------------------------------Global Varibales----------------------------*/
+var pausing = false;
+var secondCounter = 0;
 
 /*--------------------------------------Dynamic Cards----------------------------*/
 function card(taskName, duration_hours, duration_minutes, notes) {
@@ -46,6 +48,7 @@ card.prototype.addCols = function() {
     });
 };
 
+/*--------------------------------------button for generating new cards----------------------------*/
 $('#btnGen').click(function(){
     var hours =  $('#duration-hours').val();
     var minutes = $('#duration-minutes').val();
@@ -72,35 +75,51 @@ $('#btnGen').click(function(){
     return true;
 });
 
-// Update the count down every 1 minute
+/*--------------------------------------button for pausing/restarting----------------------------*/
+$('#btnPause').click(function(){
+    pausing = !pausing;
+    $(this).find('i').toggleClass('fa-pause fa-play');
+});
+
+/*--------------------------------------Update the count down every 1 minute----------------------------*/ 
 setInterval(function() {
+    //increment counter, affected by pausing as well
+    if (!pausing) secondCounter++;
 
     //get the first card's id
     //var id = $( "sprintCard:first" ).attr('id');
-    var firstCard = $( ".sprintCard" ).first();
-    if (firstCard!=null) {
-        var id = firstCard.attr('id');
+    if (!pausing&&(secondCounter==59)) {
+        var firstCard = $( ".sprintCard" ).first();
+        if (firstCard!=null) {
+            var id = firstCard.attr('id');
 
-        var hours = document.getElementById("duration-hours"+id).value;
-        var minutes = document.getElementById("duration-minutes"+id).value;
+            var hours = document.getElementById("duration-hours"+id).value;
+            var minutes = document.getElementById("duration-minutes"+id).value;
 
-        if (minutes!=0) {
-            minutes-=1;
-        }
-        else {
-            minutes=59;
-            hours-=1;
-        }
+            if (minutes!=0) {
+                minutes-=1;
+            }
+            else {
+                minutes=59;
+                hours-=1;
+            }
 
-        if (hours<=0&&minutes<=0) {
-            $('#'+id+'close').click();
-        }
-        else {
-            document.getElementById("duration-hours"+id).value = hours;
-            document.getElementById("duration-minutes"+id).value = minutes;
+            if (hours<=0&&minutes<=0) {
+                $('#'+id+'close').click();
+            }
+            else {
+                document.getElementById("duration-hours"+id).value = hours;
+                document.getElementById("duration-minutes"+id).value = minutes;
+            }
         }
     }
+<<<<<<< HEAD
 }, 60000);
+=======
+    //resatrt counter
+    if (secondCounter>=59) secondCounter = 0;
+}, 1000);
+>>>>>>> refs/remotes/origin/master
 
 
 
