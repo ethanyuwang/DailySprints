@@ -113,13 +113,9 @@ setInterval(function() {
             }
         }
     }
-<<<<<<< HEAD
-}, 60000);
-=======
     //resatrt counter
     if (secondCounter>=59) secondCounter = 0;
 }, 1000);
->>>>>>> refs/remotes/origin/master
 
 
 
