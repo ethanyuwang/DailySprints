@@ -46,17 +46,20 @@
             <li>
                 <a href="https://www.linkedin.com/in/ethan-wang-0b018b137/" onclick=$("#menu-close").click();>Contact</a>
             </li>
+            <li>
+                <a href="http://ethanxyz.com/" onclick=$("#menu-close").click();>Author</a>
+            </li>
         </ul>
     </nav>
 
     <!-- Header -->
     <header id="top" class="header">
-        <div class="text-vertical-center">
+        <div class="text-vertical-center ">
             <div class="row mx-auto" id="contentPanel">
                 <!-- insert new dynamic cards here -->
                 
                 <!-- last card as the new card editor interface -->
-                <div class="col-sm-2 col-md-2 sprintCard mx-auto" id='newCardEditor'>
+                <div class="col-sm-3 col-md-2 sprintCard mx-auto" id='newCardEditor'>
                     <div class="card" id='lastCard'>
                         <div class="card-block">
                             <input class="form-control" type="text" id="taskPanel" placeholder="New Task" />
@@ -87,8 +90,20 @@
     </header>
 
 
-
-
+    <!-- Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyD7A8LiBVBhH-MdOayk4hIsaeexp4LsZ3I",
+	    authDomain: "sprints-for-the-day.firebaseapp.com",
+	    databaseURL: "https://sprints-for-the-day.firebaseio.com",
+	    projectId: "sprints-for-the-day",
+	    storageBucket: "sprints-for-the-day.appspot.com",
+	    messagingSenderId: "100398521480"
+	  };
+	  firebase.initializeApp(config);
+	</script>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
