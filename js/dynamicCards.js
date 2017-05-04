@@ -1,3 +1,5 @@
+//var sprintCards = new Firebase('https://sprints-for-the-day.firebaseio.com/sprintCards');
+ 
 /*--------------------------------------Global Varibales----------------------------*/
 var pausing = false;
 var secondCounter = 0;
@@ -118,9 +120,7 @@ setInterval(function() {
 }, 1000);
 
 
-
-
-//change background to fix
+//change background TODO
 function init() {
     var images = ['bg1.jpg', 'bg2.jpg', 'bg3.jpg', 'bg4.jpg'];
     //var masthead = document.getElementsByTagName('masthead')[0];
