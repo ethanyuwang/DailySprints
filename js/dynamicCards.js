@@ -27,7 +27,7 @@ card.prototype.addCols = function() {
     this.id = new Date().getUTCMilliseconds();
     //Add current card to cardSuit
     cardSuite[this.id] = this
-    var myCol = $('<div class="col-sm-2 col-md-2 sprintCard mx-auto" id="'+this.id+'"></div>');
+    var myCol = $('<div class="col-sm-4 col-md-2 sprintCard mx-auto" id="'+this.id+'"></div>');
     var myPanel = $('<div class="card" id="'+this.id+'Panel"> <div class="card-block"> <input class="form-control" type="text" id="'+this.id+'taskPanel" value="'+this.taskName+'"/> </div><div class="card-block"> <input type="text" id="'+this.id+'duration" name="duration"> </div><div class="card-block card-notes-section"> <div class="form-group"> <textarea class="form-control" id="'+this.id+'noets" rows="4">'+this.notes+'</textarea> </div></div><div class="card-block card-buttons-section"> <div class="row"> <button type="button" class="btn card-buttons close" data-target="#'+this.id+'Panel" data-dismiss="alert" id="'+this.id+'close"> <i class="fa fa-remove"></i> </button> </div></div></div>')
     myPanel.appendTo(myCol);
     myCol.insertBefore('#newCardEditor');
@@ -46,6 +46,12 @@ card.prototype.addCols = function() {
             max: 59,
             id: "minutes"+this.id
         },
+        seconds: {
+            label: "s",
+            min: 0,
+            max: 59,
+            id: "seconds"+this.id
+        },
         classname: 'form-control',
         type: 'number',
         responsive: true
@@ -58,7 +64,7 @@ card.prototype.addCols = function() {
     //on close button
     $('.close').on('click', function(e){
       e.stopPropagation();  
-          var $target = $(this).parents('.col-sm-2');
+          var $target = $(this).parents('.sprintCard');
           $target.hide(function(){ $target.remove(); });
     });
 
