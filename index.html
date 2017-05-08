@@ -22,7 +22,6 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
     <!-- Plugin CSS -->
-    <link href="css/duration-picker.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -54,22 +53,22 @@
 
     <!-- Header -->
     <header id="top" class="header">
-        <div class="text-vertical-center ">
+        <div class="text-vertical-center">
             <div class="row mx-auto" id="contentPanel">
                 <!-- insert new dynamic cards here -->
                 
                 <!-- last card as the new card editor interface -->
-                <div class="col-sm-3 col-md-2 sprintCard mx-auto" id='newCardEditor'>
-                    <div class="card" id='lastCard'>
-                        <div class="card-block">
+                <div class="col-sm-4 col-md-2 sprintCard mx-auto" id='newCardEditor'>
+                    <div class="card mx-auto" id='lastCard'>
+                        <div class="card-block card-task-section">
                             <input class="form-control" type="text" id="taskPanel" placeholder="New Task" />
                         </div>
-                        <div class="card-block">
+                        <div class="card-block card-duration-section">
                             <input type="text" id="duration" name="duration">
                         </div>
                         <div class="card-block card-notes-section">
                             <div class="form-group">
-                                <textarea class="form-control" id="notesPanel" rows="4" placeholder="Some notes.."></textarea>
+                                <textarea class="form-control" id="notesPanel" rows="5" placeholder="Some notes.."></textarea>
                             </div>
                         </div>
                         <div class="card-block card-buttons-section">
