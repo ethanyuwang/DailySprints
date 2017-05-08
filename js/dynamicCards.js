@@ -59,6 +59,7 @@ card.prototype.addCols = function() {
     //set time for each new card
     document.getElementById("duration-hours"+this.id).value = this.duration_hours;
     document.getElementById("duration-minutes"+this.id).value = this.duration_minutes;
+    document.getElementById("duration-seconds"+this.id).value = this.duration_seconds;
 
 
     //on close button
@@ -105,15 +106,17 @@ function populateAllCards() {
 $('#btnGen').click(function(){
     var hours =  $('#duration-hours').val();
     var minutes = $('#duration-minutes').val();
+    var seconds = $('#duration-seconds').val();
     var task = $('#taskPanel').val();
     var notes = $('#notesPanel').val();
-    if ((hours!=0||minutes!=0)&&(task!=""||notes!="")) {
-    var newCard = new card(task, hours, minutes, 1, notes);
+    if ((hours!=0||minutes!=0||seconds!=0)&&(task!=""||notes!="")) {
+    var newCard = new card(task, hours, minutes, seconds, notes);
         newCard.addCols();
         //reset values after creating new card
         $('#taskPanel').val("");
         $('#duration-hours').val(0);
         $('#duration-minutes').val(0);
+        $('#duration-seconds').val(0);
         $('#notesPanel').val("");
     }
     else {
@@ -134,7 +137,7 @@ $('#btnPause').click(function(){
     $(this).find('i').toggleClass('fa-pause fa-play');
 });
 
-/*--------------------------------------Update the count down every 1 minute----------------------------*/ 
+/*-------------------------------------Update the count down every 1 SECOND-------------------------*/ 
 setInterval(function() {
 	//find first card
 	var firstCard = $( ".sprintCard" ).first();
@@ -142,7 +145,7 @@ setInterval(function() {
 		var id = firstCard.attr('id');
 	    var hours = document.getElementById("duration-hours"+id).value;
 	    var minutes = document.getElementById("duration-minutes"+id).value;
-	    var seconds = cardSuite[id].duration_seconds;
+	    var seconds = document.getElementById("duration-seconds"+id).value;
 	    //decrement counter, affected by pausing as well
 	    if (!pausing) {
 
@@ -153,22 +156,23 @@ setInterval(function() {
                 seconds=59;
                 minutes-=1;
             }
-            if (minutes==0) {
+            if (minutes<=0) {
                 minutes=59;
                 hours-=1;
             }
 
             //TODO: off by one minute here, to fix, display seconds or not?
-            if (hours<=0&&minutes<=0) {
+            if (hours<=0&&minutes<=0&&seconds<=0) {
                 $('#'+id+'close').click();
                 cardSuite.splice(id, 1);
             }
             else {
                 document.getElementById("duration-hours"+id).value = hours;
                 document.getElementById("duration-minutes"+id).value = minutes;
+                document.getElementById("duration-seconds"+id).value = seconds;
             }
             //update seconds in the instance
-            cardSuite[id].duration_seconds = seconds;
+            //cardSuite[id].duration_seconds = seconds;
         }
 	    //TODO: save cards #not the best place but will do for now
 	    updateAll();
@@ -178,6 +182,10 @@ setInterval(function() {
 
 //change background TODO
 function init() {
+    $('#duration-hours').val(0);
+    $('#duration-minutes').val(0);
+    $('#duration-seconds').val(0);
+
     var images = ['bg1.jpg', 'bg2.jpg', 'bg3.jpg', 'bg4.jpg'];
     //var masthead = document.getElementsByTagName('masthead')[0];
     $('#masthead').css({'background-image': 'url(img/' + images[Math.floor(Math.random() * images.length)] + ')'});

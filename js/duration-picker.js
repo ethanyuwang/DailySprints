@@ -133,10 +133,16 @@
             id: "hours"
         },
         minutes: {
-        	label: "m",
+            label: "m",
+            min: 0,
+            max: 59,
+            id: "minutes"
+        },
+        seconds: {
+        	label: "s",
         	min: 0,
         	max: 59,
-            id: "minutes"
+            id: "seconds"
         },
         classname: 'form-control',
         type: 'number',
